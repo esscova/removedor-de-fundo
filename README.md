@@ -1,45 +1,78 @@
 # 🖼️ Removedor de Fundo de Imagens
-
 ![screenshot](image.png)
 Este é um aplicativo web desenvolvido com Streamlit que permite remover o fundo de imagens utilizando a biblioteca `rembg`. O aplicativo suporta imagens nos formatos JPG, JPEG e PNG, e oferece a opção de baixar a imagem processada sem o fundo.
 
 ## 🚀 Como Usar
 
-### Pré-requisitos
+Você pode rodar este projeto de duas maneiras: localmente ou usando Docker. Escolha a opção que melhor se adapta ao seu ambiente.
 
-Antes de executar o aplicativo, certifique-se de ter o Python instalado em sua máquina. Além disso, você precisará instalar as dependências do projeto.
+---
 
-### Instalação
+### 🐳 Rodando com Docker
 
-1. Clone este repositório:
+Se você prefere rodar o projeto em um container Docker, siga os passos abaixo:
 
+1. **Certifique-se de ter o Docker instalado**:
+   - [Instale o Docker](https://docs.docker.com/get-docker/) se ainda não o tiver.
+
+2. **Clone este repositório**:
    ```bash
    git clone https://github.com/esscova/removedor-de-fundo.git
    cd removedor-de-fundo
    ```
 
-2. Crie um ambiente virtual (opcional, mas recomendado):
+3. **Construa a imagem Docker**:
+   ```bash
+   docker build -t removedor-de-fundo .
+   ```
 
+4. **Execute o container**:
+   ```bash
+   docker run -p 8501:8501 removedor-de-fundo
+   ```
+
+5. **Acesse o aplicativo**:
+   Abra o navegador e acesse `http://localhost:8501`.
+
+---
+
+### 💻 Rodando Localmente
+
+Se você prefere rodar o projeto diretamente no seu ambiente local, siga os passos abaixo:
+
+#### Pré-requisitos
+
+- Python 3.10 ou superior instalado.
+- `pip` para gerenciamento de dependências.
+
+#### Passos
+
+1. **Clone este repositório**:
+   ```bash
+   git clone https://github.com/esscova/removedor-de-fundo.git
+   cd removedor-de-fundo
+   ```
+
+2. **Crie um ambiente virtual (opcional, mas recomendado)**:
    ```bash
    python -m venv venv
    source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
    ```
 
-3. Instale as dependências:
-
+3. **Instale as dependências**:
    ```bash
    pip install -r requirements.txt
    ```
 
-### Executando o Aplicativo
+4. **Execute o aplicativo**:
+   ```bash
+   streamlit run app.py
+   ```
 
-Após instalar as dependências, você pode executar o aplicativo com o seguinte comando:
+5. **Acesse o aplicativo**:
+   Abra o navegador e acesse `http://localhost:8501`.
 
-```bash
-streamlit run app.py
-```
-
-O aplicativo será iniciado e estará disponível no seu navegador em `http://localhost:8501`.
+---
 
 ## 🛠️ Funcionalidades
 
@@ -48,6 +81,8 @@ O aplicativo será iniciado e estará disponível no seu navegador em `http://lo
 - **Download da Imagem Processada**: Oferece a opção de baixar a imagem sem o fundo.
 - **Detalhes da Imagem**: Exibe informações sobre a largura e altura da imagem processada.
 
+---
+
 ## 📦 Dependências
 
 O projeto utiliza as seguintes bibliotecas:
@@ -55,13 +90,11 @@ O projeto utiliza as seguintes bibliotecas:
 - `streamlit`: Para criar a interface web.
 - `rembg`: Para remover o fundo das imagens.
 - `Pillow (PIL)`: Para manipulação de imagens.
-- `base64`: Para codificação de imagens em base64.
+- `onnxruntime`: Para execução de modelos ONNX usados pelo `rembg`.
 
-Você pode instalar todas as dependências usando o arquivo `requirements.txt`:
+Todas as dependências estão listadas no arquivo `requirements.txt`.
 
-```bash
-pip install -r requirements.txt
-```
+---
 
 ## 📝 Exemplo de Uso
 
@@ -71,12 +104,16 @@ pip install -r requirements.txt
 4. Visualize a imagem original e a imagem sem fundo.
 5. Baixe a imagem processada clicando no botão de download.
 
+---
+
 ## 📞 Contato
 
 Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
 
 - **GitHub**: [esscova](https://github.com/esscova)
 - **LinkedIn**: [Wellington Moreira Santos](https://linkedin.com/in/wellington-moreira-santos)
+
+---
 
 ## 📄 Licença
 
@@ -85,4 +122,3 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](L
 ---
 
 **Nota**: Este projeto foi desenvolvido como uma demonstração de uso da biblioteca `rembg` em conjunto com o Streamlit. Sinta-se à vontade para contribuir ou adaptá-lo conforme suas necessidades.
-
